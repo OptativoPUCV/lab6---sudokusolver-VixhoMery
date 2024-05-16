@@ -49,9 +49,27 @@ int is_valid(Node* n){
 }
 
 
-List* get_adj_nodes(Node* n){
-    List* list=createList();
-    return list;
+List* get_adj_nodes(Node* n)
+{
+  List* list=createList();
+  int i,j;
+  for(i = 0; i < 9; i++)
+    {
+      for(j = 0; j < 9; j++)
+        {
+          //si encontró una casilla vacía
+          if(n->sudo[i][j] == 0)
+          {
+            for(int k = 0; k < 9; k++)
+              {
+                n->sudo[j][k] = k;
+                pushBack(list, n);
+              }
+          }
+        }
+    }
+  
+  return list;
 }
 
 
