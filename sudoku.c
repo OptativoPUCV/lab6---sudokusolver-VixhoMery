@@ -60,7 +60,7 @@ List* get_adj_nodes(Node* n)
           //si encontró una casilla vacía
           if(n->sudo[i][j] == 0)
           {
-            for(int k = 0; k < 9; k++)
+            for(int k = 1; k <= 9; k++)
               {
                 n->sudo[j][k] = k;
                 pushBack(list, n);
