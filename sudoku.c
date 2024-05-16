@@ -60,10 +60,10 @@ List* get_adj_nodes(Node* n)
           //si encontró una casilla vacía
           if(n->sudo[i][j] == 0)
           {
-            for(int k = 1; k < 9; k++)
+            for(int k = 0; k < 9; k++)
               {
                 Node *aux = copy(n);
-                aux->sudo[j][k] = k;
+                aux->sudo[j][k] = k + 1;
                 pushBack(list, aux);
               }
           }
