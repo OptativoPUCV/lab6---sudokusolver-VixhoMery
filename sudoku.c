@@ -48,27 +48,33 @@ int is_valid(Node *n) {
     int col_check[9][9] = {0};
     int box_check[9][9] = {0};
 
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0; j < 9; j++) {
+    for (int i = 0; i < 9; i++) 
+    {
+        for (int j = 0; j < 9; j++) 
+        {
             int num = n->sudo[i][j];
-            if (num != 0) {
+            if (num != 0) 
+            {
                 num--;  // Decrementar num 
 
                 // Verificar filas
                 if (row_check[i][num]) {
+                  
                     return 0;
                 }
                 row_check[i][num] = 1;
 
                 // Verificar columnas
-                if (col_check[j][num]) {
+                if (col_check[j][num]) 
+                {
                     return 0;
                 }
                 col_check[j][num] = 1;
 
                 // Verificar submatrices de 3x3
                 int box_index = (i / 3) * 3 + (j / 3);
-                if (box_check[box_index][num]) {
+                if (box_check[box_index][num]) 
+                {
                     return 0;
                 }
                 box_check[box_index][num] = 1;
@@ -104,8 +110,19 @@ List* get_adj_nodes(Node* n)
 }
 
 
-int is_final(Node* n){
-    return 0;
+int is_final(Node* n) 
+{
+    for (int i = 0; i < 9; i++) 
+    {
+        for (int j = 0; j < 9; j++) 
+        {
+            if (n->sudo[i][j] == 0) 
+            {
+                return 0;
+            }
+        }
+    }
+    return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
