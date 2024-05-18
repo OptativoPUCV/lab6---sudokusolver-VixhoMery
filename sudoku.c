@@ -101,11 +101,7 @@ List* get_adj_nodes(Node* n)
               {
                 Node *aux = copy(n);
                 aux->sudo[i][j] = k + 1;
-                if(is_valid(aux))
-                {
-                  pushBack(list, aux);
-                }
-                else continue;
+                pushBack(list, aux);
               }
           }
         }
@@ -131,6 +127,9 @@ int is_final(Node* n)
 
 Node* DFS(Node* initial, int* cont)
 {
+  Stack* pila = createStack();
+  push(pila, initial);
+  
   
   return NULL;
 }
